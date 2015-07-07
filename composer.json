@@ -1,0 +1,24 @@
+{
+  "name": "ozankurt/google-core",
+  "description": "Laravel 5 Google Core",
+  "keywords": ["laravel", "google", "core"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ozan Kurt",
+      "email": "ozankurt2@gmail.com"
+    }
+  ],
+  "require": {
+    "laravel/framework": "5.1.*",
+    "google/apiclient": "^1.1@dev"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kurt\\Google\\": "src/"
+    }
+  }
+}
