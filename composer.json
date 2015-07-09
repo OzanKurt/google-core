@@ -10,7 +10,6 @@
     }
   ],
   "require": {
-    "laravel/framework": "5.1.*",
     "google/apiclient": "^1.1@dev"
   },
   "require-dev": {

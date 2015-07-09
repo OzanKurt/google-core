@@ -8,7 +8,7 @@ Add the service provider to you `config/app.php`.
 
 ```php
 'providers' => [
-    Kurt\Google\GoogleCoreServiceProvider::class,
+    Kurt\Google\CoreServiceProvider::class,
 ],
 ```
 
