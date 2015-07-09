@@ -1,8 +1,9 @@
 # Google Core
 
-## Installation
+A package to keep all the required google setup together and ready.
 
-#### Configuration
+## Configuration
+
 Add the service provider to you `config/app.php`.
 
 ```php
@@ -18,13 +19,13 @@ Publish the configuration file for `ozankurt/google-core` and fill the required 
 
 Create a google developer account which as actually logging in to any of your google accounts.
 
-From this [link](https://developers.google.com/console/).
+From [https://developers.google.com/console/](https://developers.google.com/console/).
 
 ### Step 3
 
 Create a new project.
 
-PS: Skip this step if you already have one.
+> PS: Skip this step if you already have one.
 
 ![New Project](http://i.imgur.com/iedTiGQ.png)
 
@@ -32,12 +33,16 @@ PS: Skip this step if you already have one.
 
 Create a new Client ID, type should be `Service Account`
 
+> PS: Skip this step if you already have one.
+
 ![Create a new Client ID](http://i.imgur.com/0Qme3d7.png)
 ![Service Account](http://i.imgur.com/YVb4EdC.png)
 
 ### Step 5
 
 Generate new P12 key and download it.
+
+> PS: Skip this step if you already have one.
 
 ### Step 6
 
@@ -104,7 +109,7 @@ return [
 ];
 ```
 
-#### License
+## License
 
 This package inherits the licensing of its parent framework, Laravel, and as such is open-sourced 
 software licensed under the [MIT license](http://opensource.org/licenses/MIT)
