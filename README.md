@@ -2,6 +2,15 @@
 
 A package to keep all the required google setup together and ready.
 
+## Installation
+
+### Step 1
+Add `ozankurt/google-core` to your composer requirements.
+
+```php
+composer require ozankurt/google-core
+```
+
 ## Getting ready to use
 
 ### Step 1
