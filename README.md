@@ -50,7 +50,7 @@ Copy the P12 file to your storage directory.
 
 #### Example Configuration File
 
-```
+```php
 <?php
 
 return [
