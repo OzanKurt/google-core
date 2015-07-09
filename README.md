@@ -5,15 +5,12 @@ A package to keep all the required google setup together and ready.
 ## Getting ready to use
 
 ### Step 1
-Publish the configuration file for `ozankurt/google-core` and fill the required fields.
-
-### Step 2
 
 Create a google developer account which as actually logging in to any of your google accounts.
 
 From [https://developers.google.com/console/](https://developers.google.com/console/).
 
-### Step 3
+### Step 2
 
 Create a new project.
 
@@ -21,7 +18,7 @@ Create a new project.
 
 ![New Project](http://i.imgur.com/iedTiGQ.png)
 
-### Step 4
+### Step 3
 
 Create a new Client ID, type should be `Service Account`
 
@@ -30,13 +27,13 @@ Create a new Client ID, type should be `Service Account`
 ![Create a new Client ID](http://i.imgur.com/0Qme3d7.png)
 ![Service Account](http://i.imgur.com/YVb4EdC.png)
 
-### Step 5
+### Step 4
 
 Generate new P12 key and download it.
 
 > PS: Skip this step if you already have one.
 
-### Step 6
+### Step 5
 
 Copy the P12 file somewhere be used in php.
 
