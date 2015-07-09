@@ -53,10 +53,10 @@ use Kurt\Google\Core;
 use Kurt\Google\Analytics;
 
 $googleCore = new Core([
-	'applicationName' 		=> 'OzanKurt',
-	'p12FilePath' 			=> 'OzanKurt-1b6e6bbb8826.p12',
-	'serviceClientId' 		=> '116925658549-u7io2lo9rkjmamdnsnp6nm748knh7158.apps.googleusercontent.com',
-	'serviceAccountName' 	=> '116925658549-u7io2lo9rkjmamdnsnp6nm748knh7158@developer.gserviceaccount.com',
+	'applicationName' 		=> 'MyProject',
+	'p12FilePath' 			=> 'MyProject-1b6e6bbb8826.p12',
+	'serviceClientId' 		=> '122654635465-u7io2injkjniweklew48knh7158.apps.googleusercontent.com',
+	'serviceAccountName' 	=> '122654635465-u7io2injkjniweklew48knh7158@developer.gserviceaccount.com',
 	'scopes' => [
 		//
 	],
