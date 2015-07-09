@@ -13,9 +13,13 @@ class Core {
 	private $client;
 	private $googleAssertionCredentials;
 
-	function __construct() {
+	protected $settings;
 
-		$this->setPropertiesFromConfigFile();
+	function __construct($settings = null) {
+
+		$this->settings = $settings;
+
+		$this->setupConfiguration();
 
 		$this->setupGoogleAssertionCredentials();
 
@@ -28,17 +32,42 @@ class Core {
 		return $this->client;
 	}
 
-	private function setPropertiesFromConfigFile()
+	public function getSettings($key = null)
 	{
-		$this->applicationName = config('google.applicationName');
+		if (is_null($key)) {
+			return $this->settings;
+		}
 
-		$this->p12FilePath = config('google.p12FilePath');
+		if (array_key_exists($key, $this->settings)) {
+			return $this->settings[$key];
+		}
 
-		$this->serviceClientId = config('google.serviceClientId');
+		throw new \Exception("Undefined setting [{$key}].", 1);
+	}
 
-		$this->serviceAccountName = config('google.serviceAccountName');
+	private function setupConfiguration()
+	{
+		if (is_null($this->settings)) 
+		{
+			$this->setupConfigurationFromConfigFile();
+		}
 
-		$this->scopes = config('google.scopes');
+		$this->applicationName = $this->settings['applicationName'];
+
+		$this->p12FilePath = $this->settings['p12FilePath'];
+
+		$this->serviceClientId = $this->settings['serviceClientId'];
+
+		$this->serviceAccountName = $this->settings['serviceAccountName'];
+
+		$this->scopes = $this->settings['scopes'];
+	}
+
+	private function setupConfigurationFromConfigFile()
+	{
+		foreach (config('google') as $key => $value) {
+			$this->settings[$key] = $value;
+		}
 	}
 
 	private function setupGoogleAssertionCredentials()
@@ -47,7 +76,7 @@ class Core {
 		    $this->serviceAccountName,
 		    $this->scopes,
 		    file_get_contents(
-		    	storage_path($this->p12FilePath)
+		    	$this->p12FilePath
 		    )
 		);
 	}

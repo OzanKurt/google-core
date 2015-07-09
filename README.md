@@ -2,15 +2,7 @@
 
 A package to keep all the required google setup together and ready.
 
-## Configuration
-
-Add the service provider to you `config/app.php`.
-
-```php
-'providers' => [
-    Kurt\Google\CoreServiceProvider::class,
-],
-```
+## Getting ready to use
 
 ### Step 1
 Publish the configuration file for `ozankurt/google-core` and fill the required fields.
@@ -46,9 +38,54 @@ Generate new P12 key and download it.
 
 ### Step 6
 
-Copy the P12 file to your storage directory.
+Copy the P12 file somewhere be used in php.
+
+## Configuration (Pure PHP)
 
 #### Example Configuration File
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Kurt\Google\Core;
+use Kurt\Google\Analytics;
+
+$googleCore = new Core([
+	'applicationName' 		=> 'OzanKurt',
+	'p12FilePath' 			=> 'OzanKurt-1b6e6bbb8826.p12',
+	'serviceClientId' 		=> '116925658549-u7io2lo9rkjmamdnsnp6nm748knh7158.apps.googleusercontent.com',
+	'serviceAccountName' 	=> '116925658549-u7io2lo9rkjmamdnsnp6nm748knh7158@developer.gserviceaccount.com',
+	'scopes' => [
+		//
+	],
+]);
+```
+
+## Configuration (Laravel)
+
+#### Step 1
+
+Add the service provider to you `config/app.php`.
+
+```php
+'providers' => [
+    Kurt\Google\CoreServiceProvider::class,
+],
+```
+
+#### Step 2
+
+Run `vendor:publish` command from your terminal.
+
+```
+php artisan vendor:publish
+```
+
+#### Step 3
+
+Edit the fields in the configuration file.
 
 ```php
 <?php
