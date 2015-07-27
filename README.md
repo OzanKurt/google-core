@@ -1,5 +1,7 @@
 # Google Core
 
+[![Latest Stable Version](https://poser.pugx.org/ozankurt/google-core/v/stable)](https://packagist.org/packages/ozankurt/google-core) [![Total Downloads](https://poser.pugx.org/ozankurt/google-core/downloads)](https://packagist.org/packages/ozankurt/google-core) [![Latest Unstable Version](https://poser.pugx.org/ozankurt/google-core/v/unstable)](https://packagist.org/packages/ozankurt/google-core) [![License](https://poser.pugx.org/ozankurt/google-core/license)](https://packagist.org/packages/ozankurt/google-core)
+
 A package to keep all the required google setup together and ready.
 
 ## Installation
