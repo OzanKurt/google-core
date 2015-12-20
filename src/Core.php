@@ -2,94 +2,91 @@
 
 namespace Kurt\Google;
 
-class Core {
+class Core
+{
+    private $applicationName;
+    private $p12FilePath;
+    private $serviceClientId;
+    private $serviceAccountName;
+    private $scopes;
 
-	private $applicationName;
-	private $p12FilePath;
-	private $serviceClientId;
-	private $serviceAccountName;
-	private $scopes;
+    private $client;
+    private $googleAssertionCredentials;
 
-	private $client;
-	private $googleAssertionCredentials;
+    protected $settings;
 
-	protected $settings;
+    public function __construct($settings = null)
+    {
+        $this->settings = $settings;
 
-	function __construct($settings = null) {
+        $this->setupConfiguration();
 
-		$this->settings = $settings;
+        $this->setupGoogleAssertionCredentials();
 
-		$this->setupConfiguration();
+        $this->setupClient();
+    }
 
-		$this->setupGoogleAssertionCredentials();
+    public function getClient()
+    {
+        return $this->client;
+    }
 
-		$this->setupClient();
+    public function getSettings($key = null)
+    {
+        if (is_null($key)) {
+            return $this->settings;
+        }
 
-	}
+        if (array_key_exists($key, $this->settings)) {
+            return $this->settings[$key];
+        }
 
-	public function getClient()
-	{
-		return $this->client;
-	}
+        throw new \Exception("Undefined setting [{$key}].", 1);
+    }
 
-	public function getSettings($key = null)
-	{
-		if (is_null($key)) {
-			return $this->settings;
-		}
+    private function setupConfiguration()
+    {
+        if (is_null($this->settings)) {
+            $this->setupConfigurationFromConfigFile();
+        }
 
-		if (array_key_exists($key, $this->settings)) {
-			return $this->settings[$key];
-		}
+        $this->applicationName = $this->settings['applicationName'];
 
-		throw new \Exception("Undefined setting [{$key}].", 1);
-	}
+        $this->p12FilePath = $this->settings['p12FilePath'];
 
-	private function setupConfiguration()
-	{
-		if (is_null($this->settings)) 
-		{
-			$this->setupConfigurationFromConfigFile();
-		}
+        $this->serviceClientId = $this->settings['serviceClientId'];
 
-		$this->applicationName = $this->settings['applicationName'];
+        $this->serviceAccountName = $this->settings['serviceAccountName'];
 
-		$this->p12FilePath = $this->settings['p12FilePath'];
+        $this->scopes = $this->settings['scopes'];
+    }
 
-		$this->serviceClientId = $this->settings['serviceClientId'];
+    private function setupConfigurationFromConfigFile()
+    {
+        foreach (config('google') as $key => $value) {
+            $this->settings[$key] = $value;
+        }
+    }
 
-		$this->serviceAccountName = $this->settings['serviceAccountName'];
+    private function setupGoogleAssertionCredentials()
+    {
+        $this->googleAssertionCredentials = new \Google_Auth_AssertionCredentials(
+            $this->serviceAccountName,
+            $this->scopes,
+            file_get_contents(
+                $this->p12FilePath
+            )
+        );
+    }
 
-		$this->scopes = $this->settings['scopes'];
-	}
+    private function setupClient()
+    {
+        $this->client = new \Google_Client();
 
-	private function setupConfigurationFromConfigFile()
-	{
-		foreach (config('google') as $key => $value) {
-			$this->settings[$key] = $value;
-		}
-	}
+        $this->client->setAssertionCredentials($this->googleAssertionCredentials);
 
-	private function setupGoogleAssertionCredentials()
-	{
-		$this->googleAssertionCredentials = new \Google_Auth_AssertionCredentials(
-		    $this->serviceAccountName,
-		    $this->scopes,
-		    file_get_contents(
-		    	$this->p12FilePath
-		    )
-		);
-	}
+        $this->client->setClientId($this->serviceClientId);
 
-	private function setupClient()
-	{
-		$this->client = new \Google_Client();
-
-		$this->client->setAssertionCredentials($this->googleAssertionCredentials);
-
-		$this->client->setClientId($this->serviceClientId);
-
-		$this->client->setApplicationName($this->applicationName);
-	}
-
+        $this->client->setApplicationName($this->applicationName);
+    }
 }

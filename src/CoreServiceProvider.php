@@ -34,7 +34,7 @@ class CoreServiceProvider extends ServiceProvider
     private function registerCore()
     {
         $this->app->singleton(Core::class, function ($app) {
-            return new Core;
+            return new Core();
         });
     }
 
@@ -46,7 +46,7 @@ class CoreServiceProvider extends ServiceProvider
     private function publishConfig()
     {
         $this->publishes([
-            __DIR__ . '/config/google.php' => config_path('google.php'),
+            __DIR__.'/config/google.php' => config_path('google.php'),
         ]);
     }
 }
