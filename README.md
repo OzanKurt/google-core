@@ -50,7 +50,6 @@ Copy the json auth file somewhere be used in php.
 require 'vendor/autoload.php';
 
 use Kurt\Google\Core;
-use Kurt\Google\Analytics;
 
 $googleCore = new Core([
     'applicationName'       => 'Google API Wrapper Demo',
