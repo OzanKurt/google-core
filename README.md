@@ -33,8 +33,8 @@ Create a new `Service Account` and download the json auth file.
 
 > PS: Skip this step if you already have one.
 
-![Create Credentials - 1](http://i.imgur.com/3SKns9X.png)
-![Create Credentials - 2](http://i.imgur.com/cq5faRV.png)
+![Create Credentials - 1](http://i.imgur.com/cq5faRV.png)
+![Create Credentials - 2](http://i.imgur.com/3SKns9X.png)
 
 ### Step 5
 
