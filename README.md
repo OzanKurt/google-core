@@ -27,26 +27,18 @@ Create a new project.
 
 > PS: Skip this step if you already have one.
 
-![New Project](http://i.imgur.com/iedTiGQ.png)
-
 ### Step 3
 
-Create a new Client ID, type should be `Service Account`
+Create a new `Service Account` and download the json auth file.
 
 > PS: Skip this step if you already have one.
 
-![Create a new Client ID](http://i.imgur.com/0Qme3d7.png)
-![Service Account](http://i.imgur.com/YVb4EdC.png)
-
-### Step 4
-
-Generate new P12 key and download it.
-
-> PS: Skip this step if you already have one.
+![Create Credentials - 1](http://i.imgur.com/3SKns9X.png)
+![Create Credentials - 2](http://i.imgur.com/cq5faRV.png)
 
 ### Step 5
 
-Copy the P12 file somewhere be used in php.
+Copy the json auth file somewhere be used in php.
 
 ## Configuration (Pure PHP)
 
@@ -61,13 +53,11 @@ use Kurt\Google\Core;
 use Kurt\Google\Analytics;
 
 $googleCore = new Core([
-	'applicationName' 		=> 'MyProject',
-	'p12FilePath' 			=> 'MyProject-1b6e6bbb8826.p12',
-	'serviceClientId' 		=> '122654635465-u7io2injkjniweklew48knh7158.apps.googleusercontent.com',
-	'serviceAccountName' 	=> '122654635465-u7io2injkjniweklew48knh7158@developer.gserviceaccount.com',
-	'scopes' => [
-		//
-	],
+    'applicationName'       => 'Google API Wrapper Demo',
+    'jsonFilePath'          => 'Google API Wrapper Demo-174e172143a9.json',
+    'scopes' => [
+        // 
+    ],
 ]);
 ```
 
@@ -100,58 +90,43 @@ Edit the fields in the configuration file.
 
 return [
 
-	/**
-	 * Application Name
-	 *
-	 * Name of your project in `https://console.developers.google.com/`.
-	 */
-	'applicationName' => 'MyProject',
+    /*
+     * Application Name
+     *
+     * Name of your project in `https://console.developers.google.com/`.
+     */
+    'applicationName' => 'MyProject',
 
-	/**
-	 * P12 File
-	 *
-	 * After creating a project, go to `APIs & auth` and choose `Credentials` section.
-	 * 
-	 * Click `Create new Client ID` and select `Service Account` choose `P12` as the `Key Type`.
-	 *
-	 * After downloading the `p12` file copy and paste it in the `storage` directory.
-	 * 		Example:
-	 * 			storage/MyProject-2a4d6aaa4413.p12
-	 * 
-	 */
-	'p12FilePath' => 'MyProject-2a4d6aaa4413.p12',
+    /*
+     * Json Auth File Path
+     *
+     * After creating a project, go to `APIs & auth` and choose `Credentials` section.
+     * 
+     * Click `Create new Client ID` and select `Service Account` choose `P12` as the `Key Type`.
+     *
+     * After downloading the `p12` file copy and paste it in the `storage` directory.
+     * 		Example:
+     * 			storage/MyProject-2a4d6aaa4413.p12
+     * 
+     */
+    'jsonFilePath' => 'MyProject-2a4d6aaa4413.p12',
 
-	/**
-	 * You will find this information under `Service Account` > `Client ID`
-	 *
-	 * 		Example:
-	 * 			122654635465-u7io2injkjniweklew48knh7158.apps.googleusercontent.com
-	 */
-	'serviceClientId' => '',
-	
-	/**
-	 * You will find this information under `Service Account` > `Email Address`
-	 *
-	 * 		Example:
-	 * 			122654635465-u7io2injkjniweklew48knh7158@developer.gserviceaccount.com
-	 */
-	'serviceAccountName' => '',
-	
-	/**
-	 * Here you should pass an array of needed scopes depending on what service you will be using.
-	 *
-	 * 		Example:
-	 * 			For analytics service:
-	 * 			
-	 * 				'scopes' => [
-	 *					'https://www.googleapis.com/auth/analytics.readonly',
-	 *				],
-	 */
-	'scopes' => [
-		//
-	],
+    /*
+     * Here you should pass an array of needed scopes depending on what service you will be using.
+     *
+     * 		Example:
+     * 			For analytics service:
+     * 			
+     * 				'scopes' => [
+     *					'https://www.googleapis.com/auth/analytics.readonly',
+     *				],
+     */
+    'scopes' => [
+        //
+    ],
 
 ];
+
 ```
 
 ## License
