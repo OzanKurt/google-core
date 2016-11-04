@@ -94,7 +94,7 @@ return [
      *
      * Name of your project in `https://console.developers.google.com/`.
      */
-    'applicationName' => 'MyProject',
+    'applicationName' => 'Google API Wrapper Demo',
 
     /*
      * Json Auth File Path
@@ -105,10 +105,10 @@ return [
      *
      * After downloading the `p12` file copy and paste it in the `storage` directory.
      * 		Example:
-     * 			storage/MyProject-2a4d6aaa4413.p12
+     * 			storage/Google API Wrapper Demo-174e172143a9.json
      * 
      */
-    'jsonFilePath' => 'MyProject-2a4d6aaa4413.p12',
+    'jsonFilePath' => storage_path('Google API Wrapper Demo-174e172143a9.json'),
 
     /*
      * Here you should pass an array of needed scopes depending on what service you will be using.
