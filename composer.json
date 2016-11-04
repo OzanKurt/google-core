@@ -10,11 +10,12 @@
     }
   ],
   "require": {
-    "google/apiclient": "^2.1"
+    "google/apiclient": "^2.1",
+    "nesbot/carbon": "^1.21"
   },
   "autoload": {
     "psr-4": {
-      "Kurt\\Google\\": "src/"
+      "Kurt\\Google\\Core\\": "src/"
     }
   }
 }

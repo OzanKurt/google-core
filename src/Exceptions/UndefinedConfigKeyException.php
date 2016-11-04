@@ -1,6 +1,6 @@
 <?php
 
-namespace Kurt\Google\Exceptions;
+namespace Kurt\Google\Core\Exceptions;
 
 class UndefinedConfigKeyException extends \Exception
 {

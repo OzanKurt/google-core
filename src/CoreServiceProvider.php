@@ -1,6 +1,6 @@
 <?php
 
-namespace Kurt\Google;
+namespace Kurt\Google\Core;
 
 use Illuminate\Support\ServiceProvider;
 
