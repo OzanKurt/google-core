@@ -34,7 +34,9 @@ class CoreServiceProvider extends ServiceProvider
     private function registerCore()
     {
         $this->app->singleton(Core::class, function ($app) {
-            return new Core();
+            return new Core(
+                config('google')
+            );
         });
     }
 
