@@ -10,8 +10,7 @@
     }
   ],
   "require": {
-    "google/apiclient": "^2.1",
-    "nesbot/carbon": "^1.21"
+    "google/apiclient": "^2.1"
   },
   "autoload": {
     "psr-4": {
